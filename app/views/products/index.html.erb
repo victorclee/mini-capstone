@@ -1,0 +1,12 @@
+<h1>List of Designer Chairs</h1>
+<% @product.each do |chair| %>
+  <h2>Name: <a href="/designerchairs/<%= chair.id %>"><%= chair.name %></a></h2>
+  <h2>Price: <%= chair.price %></h2>
+  <img src = <%= chair.image %>>
+  <h2>Description: <%= chair.description %></h2>
+  <br>
+  <br>
+  <br>
+<% end %>
+
+<a href="url">link text</a>

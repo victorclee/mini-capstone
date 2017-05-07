@@ -1,0 +1,15 @@
+<h1>Create a new chair</h1>
+
+<%= form_tag "/designerchairs", method: :post do %>
+  <div>
+    Name: <input type="text" name="name">
+  </div>
+  <div>
+    Price: <input type="text" name="price">
+  </div>
+  <div>
+    Description: <input type="text" name="description">
+  </div>
+  <input type="Submit" value="Create New Chair">
+
+<% end %>
