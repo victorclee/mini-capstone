@@ -1,6 +1,9 @@
 <a href="/">Home</a>
 
-<h2>Name: <%= @chair.name %></h2>
-<h2>Price: <%= @chair.price %></h2>
-<img src = <%= @chair.image %>>
-<h2>Description: <%= @chair.description %></h2>
+<h2>Name: <%= @product.name %></h2>
+<h2>Price: <%= @product.price %></h2>
+<img src = <%= @product.image %> >
+<h2>Description: <%= @product.description %></h2>
+
+<%= link_to "Edit Product", "/designerchairs/#{ @product.id }/edit" %>
+<%= link_to "Delete", "/designerchairs/#{ @product.id }", method: :delete %>

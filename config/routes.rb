@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   post '/designerchairs' => 'products#create'
 
   get '/designerchairs/:id' => 'products#show'
+
+  get '/designerchairs/:id/edit' => 'products#edit'
+  patch '/designerchairs/:id' => 'products#update'
+
+  delete '/designerchairs/:id' => 'products#destroy'
 end
