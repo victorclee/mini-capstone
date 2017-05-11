@@ -1,14 +1,13 @@
 class Product < ApplicationRecord
-  def sale_message
-    if price < 1000
-      return "Discount Item!"
-    else
-      return "Everyday Value!!"
-    end
+  def tax
+    price * 0.09
   end
 
-  def tax
-    taxation = price * 0.09
-    "The tax for this item is: $ #{taxation}"
+  def total
+    price + tax
+  end
+
+  def discounted?
+    price < 1000
   end
 end
