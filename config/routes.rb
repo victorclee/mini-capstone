@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   patch '/designerchairs/:id' => 'products#update'
 
   delete '/designerchairs/:id' => 'products#destroy'
+
+  get '/random' => 'products#random'
+
 end

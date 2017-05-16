@@ -1,12 +1,33 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    render 'index.html.erb'
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
+    discount = params[:discount]
+    search_term = params[:search_term]
+
+    if search_term
+      @products = @products.where(
+                              "name iLIKE ? OR description iLIKE ?", 
+                              "%#{search_term}%",
+                              "%#{search_term}%"
+                              )
+    end
+
+    if discount
+      @products = @products.where("price < ?", discount)
+    end
+
+    if sort_attribute && sort_order
+      @products = @products.order(sort_attribute => sort_order)
+    elsif sort_attribute
+      @products = @products.order(sort_attribute)
+    end
   end
 
   def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    product = params[:id]
+    @product = Product.find_by(id: product)
   end
 
   def new
@@ -44,6 +65,11 @@ class ProductsController < ApplicationController
     product.destroy
     flash[:warning] = "Product Deleted"
     redirect_to "/"
+  end
+
+  def random
+    product = Product.all.sample
+    redirect_to "/designerchairs/#{product.id}"
   end
 
 end
