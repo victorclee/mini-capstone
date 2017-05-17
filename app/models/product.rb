@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  has_many :images
   def discounted?
     price < 2000
   end
@@ -8,5 +9,14 @@ class Product < ApplicationRecord
   end
   def total
     price + tax
+  end
+
+  def first_image_url
+    image_collection = images
+    if image_collection.length == 0
+      "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg"
+    else
+      image_collection.first.url
+    end
   end
 end

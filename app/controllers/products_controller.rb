@@ -37,7 +37,8 @@ class ProductsController < ApplicationController
     product = Product.new(
                           name: params[:name],
                           price: params[:price],
-                          description: params[:description]  
+                          description: params[:description],
+                          supplier_id: params[:supplier][:supplier_id]  
                           )
     product.save
     flash[:success] = "Product Successfully Created"
