@@ -1,0 +1,9 @@
+<h1>You purchased successfully!</h1>
+
+<h3>Your order of <%= @order.quantity %> of chairs has been confirmed with the order ID of <%= @order.id %></h3>
+
+<img src="<%= @order.product.first_image_url %>">
+
+<h3>Your subtotal is $<%= @order.subtotal %>, the tax was $<%= @order.tax %>, which comes to a total of $<%= @order.total %></h3>
+
+<h3>A confirmation email will be sent to: <%= current_user.email %></h3>

@@ -17,6 +17,22 @@
   <!-- </div> -->
     <h5><%= @product.supplier.name %></h5>
 
+<h3>Make a purchase!</h3>
+
+<%= form_tag '/orders', method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <div>
+    <%= label_tag :product_id %>
+    <%= text_field_tag :product_id %>
+  </div>
+    <%= submit_tag 'Buy Now!' %>
+<% end %>
+
+
 
 <%= link_to "Edit Product", "/designerchairs/#{ @product.id }/edit" %>
 <%= link_to "Delete", "/designerchairs/#{ @product.id }", method: :delete %>
+

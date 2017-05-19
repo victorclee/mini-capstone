@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
+  has_many :orders
+
+  
   def discounted?
     price < 2000
   end
