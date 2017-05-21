@@ -41,8 +41,13 @@
               <li><a href="/designerchairs?sort=price&sort_order=desc">Sort Price: Highest to Lowest</a></li>
               <li><a href="/designerchairs?discount=4000">Discount Items</a></li>
               <li><a href="/random">Random Product</a></li>
-              <li role="separator" class="divider"></li>
 
+              <li role="separator" class="divider"></li>
+              <% Category.all.each do |category| %>
+                <li><a href="/designerchairs?category=<%= category.name %>"><%= category.name.titleize %></a></li>
+              <% end %>
+
+              <li role="separator" class="divider"></li>
               <% if current_user %>
                 <li><a href="/logout">Log Out</a></li>
               <% else %>
