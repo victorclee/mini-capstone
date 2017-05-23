@@ -25,4 +25,14 @@ class Product < ApplicationRecord
       image_collection.first.url
     end
   end
+
+  def stringify_categories
+    categories.map { |category| category.name.titleize }.join(", ")    
+    # category_array = []
+    # categories.each do |cat|
+    #   category_array << cat.name.titleize
+    # end
+    # category_array.join(", ")
+  end
+
 end

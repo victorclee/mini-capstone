@@ -1,21 +1,22 @@
 <h2>Name: <%= @product.name %></h2>
   <!-- <div class="col-md-6"> -->
     <% if @product.discounted? %>
-      <h4>Discount Item</h4>
+      <h3>Discount Item</h3>
     <% else %>
-      <h4>Everyday item</h4>
+      <h3>Everyday item</h3>
     <% end %>
 
      <img src="<%= @product.first_image_url %>" alt="<%= @product.name %>" class="img-responsive show-product">
 
     <h2 class="<%= "red-price" if @product.discounted? %>">Price: <%= number_to_currency(@product.price) %></h2>
-    <h3><%= number_to_currency(@product.tax) %></h3>
-    <h3><%= number_to_currency(@product.total) %></h3>
+    <h3>Tax: <%= number_to_currency(@product.tax) %></h3>
+    <h3>Total: <%= number_to_currency(@product.total) %></h3>
 
 
     <h2>Description: <%= @product.description %></h2>
-  <!-- </div> -->
-    <h3><%= @product.supplier.name %></h3>
+    <h3>This product belongs to the following categories: <%= @product.stringify_categories %></h3>
+
+    <h3>You can also find this product at <%= @product.supplier.name %></h3>
 
 <h3>Make a purchase!</h3>
 
@@ -33,5 +34,7 @@
 
 
 <%= link_to "Edit Product", "/designerchairs/#{ @product.id }/edit", class: "btn btn-warning" %>
-<%= link_to "Delete", "/designerchairs/#{ @product.id }", method: :delete %>
+<%= link_to "Delete", "/designerchairs/#{ @product.id }", class: "btn btn-danger", method: :delete %>
+
+
 
