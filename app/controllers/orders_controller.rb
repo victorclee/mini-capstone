@@ -8,17 +8,17 @@ class OrdersController < ApplicationController
     # calculated_tax = calculated_subtotal * 0.09
     # calculated_total = calculated_subtotal + calculated_tax
 
-    order = Order.new(
-                      product_id: params[:product_id],
-                      user_id: current_user.id,
-                      quantity: params[:quantity],
-                      subtotal: params[:subtotal],
-                      tax: params[:tax],
-                      total: params[:total]
-                      )
-    if order.save
-    redirect_to "/orders/#{order.id}"    
-    end
+  #   order = Order.new(
+  #                     product_id: params[:product_id],
+  #                     user_id: current_user.id,
+  #                     quantity: params[:quantity],
+  #                     subtotal: params[:subtotal],
+  #                     tax: params[:tax],
+  #                     total: params[:total]
+  #                     )
+  #   if order.save
+  #   redirect_to "/orders/#{order.id}"    
+  #   end
   end
 
   def show
