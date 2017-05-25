@@ -20,15 +20,13 @@
 
 <h3>Make a purchase!</h3>
 
-<%= form_tag '/cart', method: :post do %>
+<%= form_tag '/carted_products', method: :post do %>
   <div>
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
   </div>
-
     <%= hidden_field_tag :product_id, @product.id %>
     <%= submit_tag 'Add To Cart', class: "btn btn-primary" %>
-    <!-- <input type="submit" value="Buy Now!" class="btn btn-primary"> -->
 <% end %>
 
 

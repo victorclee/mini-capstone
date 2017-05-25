@@ -1,9 +1,12 @@
 class Order < ApplicationRecord
   belongs_to :product, optional: true
-  belongs_to :user, optional: true 
-  belongs_to :product
+  belongs_to :user
+  
   has_many :carted_products
   has_many :products, through: :carted_products
+
+
+
 
   def subtotal
     quantity * product.price

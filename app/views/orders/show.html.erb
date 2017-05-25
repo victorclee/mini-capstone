@@ -1,11 +1,12 @@
 <h1>You purchased successfully!</h1>
 
 <div class = well>
-  <h3>Your order of <%= @order.quantity %> <%= @order.product.name %> has been confirmed with the order ID of DSGN000<%= @order.id %></h3>
+  <h3>order ID of DSGN000<%= @order.id %></h3>
 
-  <img src="<%= @order.product.first_image_url %>">
+  <% @order.carted_products.each do |carted_product| %>
+    <p><%= carted_product.product.name %> - <%= number_to_currency(carted_product.product.price) %> x <%= carted_product.quantity %></p>
+  <% end %>
 
-  <h3>Your subtotal is <%= number_to_currency(@order.subtotal) %>, the tax was <%= number_to_currency(@order.tax) %>, which comes to a total of <%= number_to_currency(@order.total) %></h3>
 
   <h3>A confirmation email will be sent to: <%= current_user.email %></h3>
 </div>
