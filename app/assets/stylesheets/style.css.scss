@@ -1,18 +1,39 @@
 h1 {
-  font: helvetica; 
-  font-size: 50px;
-  color: #BFBEC2;
-  text-align: center;
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;; 
+    font-size: 50px;
+    color: #C1C6CD;
+    text-align: center;
     }
 
 h2 {
-  color: #CFD9E7;
-  text-align: center;
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;;
+    color: #242F3E;
+    text-align: center;
     }
 
 h3 {
-  text-align: center;
-}
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;;
+    color: #513F41;
+    text-align: center;
+    }
+
+h4 {
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;;
+    color: #CCB7A9;
+    text-align: center;
+    }
+
+h5 {
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;;
+    color: #E2D5CE;
+    text-align: center;
+    }
+
+p  {
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;;
+    color: black;
+    text-align: center;
+    }
 
 img {
     display: block;
@@ -20,15 +41,15 @@ img {
     width: 50%;
     }
 body {
-  font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;
-  background-image: url('concrete_seamless.png');
+    font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;
+    background-image: url('brickwall_@2X.png');
       }
 
 .red-price {
-  color: red;
+    color: red;
 
 }
 
 .black-text {
-  color: black;
+    color: black;
 }

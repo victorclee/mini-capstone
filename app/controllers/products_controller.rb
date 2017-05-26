@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :random]
+  # before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+
+
   def index
     if session[:count] == nil
       session[:count] = 0
@@ -44,18 +48,22 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    product = Product.new(
+    @product = Product.new(
                           name: params[:name],
                           price: params[:price],
                           description: params[:description],
                           supplier_id: params[:supplier][:supplier_id]  
                           )
-    product.save
-    flash[:success] = "Product Successfully Created"
-    redirect_to "/designerchairs/#{ product.id }"
+    if @product.save
+      flash[:success] = "Product Successfully Created"
+      redirect_to "/designerchairs/#{ @product.id }"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def edit
@@ -72,6 +80,7 @@ class ProductsController < ApplicationController
     product.save
     flash[:success] = "Product Information Successfully Updated"
     redirect_to "/designerchairs/#{ product.id }"
+
   end
 
   def destroy

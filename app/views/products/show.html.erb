@@ -29,10 +29,9 @@
     <%= submit_tag 'Add To Cart', class: "btn btn-primary" %>
 <% end %>
 
-
-
-<%= link_to "Edit Product", "/designerchairs/#{ @product.id }/edit", class: "btn btn-warning" %>
-<%= link_to "Delete", "/designerchairs/#{ @product.id }", class: "btn btn-danger", method: :delete %>
-
+<% if admin_signed_in? %>
+  <%= link_to "Edit Product", "/designerchairs/#{ @product.id }/edit", class: "btn btn-warning" %>
+  <%= link_to "Delete", "/designerchairs/#{ @product.id }", class: "btn btn-danger", method: :delete %>
+<% end %>
 
 
